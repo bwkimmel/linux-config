@@ -15,4 +15,8 @@ prompt_color=$punc_color
 input_color=$bold_yellow
 
 export PS1="${punc_color}[${user_host_color}\\u@\\h${punc_color}:${path_color}\\w${punc_color}] ${exit_string}\\n${hist_color}\\!${prompt_color}\\$ ${input_color}"
-trap 'echo -ne "\e[0m"' DEBUG
+if [ $(uname) == 'Darwin' ]; then
+  trap "echo -n $'\e[0m'" DEBUG
+else
+  trap 'echo -ne "\e[0m"' DEBUG
+fi
