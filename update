@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIR=$(dirname $0)
+OS=$(uname)
+
+echo -n "Updating config..."
+pushd $DIR 1>&/dev/null
+git pull 1>&/dev/null
+if [ $? -eq 0 ]; then
+  if [ "$OS" == "Darwin" ]; then
+    echo $' [ \e[0;32mOK\e[0m ]'
+  else
+    echo -e " [ \e[0;32mOK\e[0m ]"
+  fi
+else
+  if [ "$OS" == "Darwin" ]; then
+    echo $' [ \e[0;31mFAILED\e[0m ]'
+  else
+    echo -e " [ \e[0;31mFAILED\e[0m ]"
+  fi
+fi
+popd 1>&/dev/null
+
