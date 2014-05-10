@@ -1,0 +1,21 @@
+[http]
+[color]
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+[core]
+  pager = less -FRSX
+[merge]
+  tool = vimdiff
+[alias]
+  ci = commit -v
+  st = status
+  dc = diff --cached
+  si = stage -i
+  glog = !git log --decorate --graph --oneline
+  serve = instaweb -d webrick # requires ruby, leaves server process hanging around
+  out = !git fetch && git log FETCH_HEAD..master
+  in = !git fetch && git log master..FETCH_HEAD
+[push]
+  default = simple
