@@ -7,7 +7,7 @@ bold_cyan='\[\e[1;36m\]'
 cyan='\[\e[0;36m\]'
 
 punc_color=$bold_white
-user_host_color=$bold_green
+user_host_color='\[$([[ "\$" == "#" ]] && echo "\e[1;91m" || echo "\e[0;32m")\]'
 path_color=$cyan
 exit_string='\[$([[ $? -eq 0 ]] && echo "\e[0;32m(0)\e[0m" || echo "\e[41m\e[1;37m($?)\e[40m\e[0m")\]'
 hist_color=$bold_cyan
